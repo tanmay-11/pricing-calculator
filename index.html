@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Calculator</title>
+    <style>
+          body {
+               padding: 30px;
+               }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <h2>Pricing claculator</h2>
+        <form>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" class="form-control " name="price" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="text" class="form-control" name="quantity" value="1">
+            </div>
+
+        </form>
+
+        <div class="text-right text-giant total">
+            $0
+        </div>
+
+    </div>
+
+    <!-------------------------Java script-------------------------------->
+    <script>
+
+        // Grab everthing that we need 
+        const priceInput = document.querySelector('[name=price]');
+        const quantityInput = document.querySelector('[name=quantity]');
+        const totalInput = document.querySelector('.total');
+
+
+        // Create the fucntions taht we will need 
+        function calculateDonutcost() {
+            const price = priceInput.value;
+            const quantity = quantityInput.value;
+            const total = price * quantity;
+            console.log(total);
+            totalInput.innerText = '$' + total, toFixed(2);
+        }
+
+        // add our events listeners
+        priceInput.addEventListener('input', calculateDonutcost);
+        quantityInput.addEventListener('input', calculateDonutcost);
+
+    </script>
+</body>
+
+</html>
